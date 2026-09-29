@@ -1,0 +1,14 @@
+usr/share/gocode/src/github.com/danos/vci/.gitignore
+usr/share/gocode/src/github.com/danos/vci/LICENSE
+usr/share/gocode/src/github.com/danos/vci/README.md
+usr/share/gocode/src/github.com/danos/vci/deb-vci-helper/deb_vci_helper.go
+usr/share/gocode/src/github.com/danos/vci/deb-vci-helper/deb_vci_helper_test.go
+usr/share/gocode/src/github.com/danos/vci/deb-vci-helper/target_file.go
+usr/share/gocode/src/github.com/danos/vci/docs/DotComponent.md
+usr/share/gocode/src/github.com/danos/vci/docs/IntegrationLibrary-General.md
+usr/share/gocode/src/github.com/danos/vci/docs/Overview.md
+usr/share/gocode/src/github.com/danos/vci/docs/VciDebianHelper.md
+usr/share/gocode/src/github.com/danos/vci/etc/default/vyatta-vci-bus
+usr/share/gocode/src/github.com/danos/vci/go.mod
+usr/share/gocode/src/github.com/danos/vci/tools/vci-emit-notification/main.go
+usr/share/gocode/src/github.com/danos/vci/vcidbus/vyatta-vci-bus.conf
