@@ -1,10 +1,9 @@
 Source: vyatta-component-infra
 Section: admin
 Priority: optional
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends:
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  dbus-x11,
- debhelper (>= 9.20160709),
  dh-golang,
  golang-dbus-dev (>= 4.0.0~git20160605-0vyatta4),
  golang-github-danos-encoding-rfc7951-dev,
@@ -13,7 +12,10 @@ Build-Depends:
  golang-github-jsouthworth-objtree-dev,
  golang-go (>= 2:1.4),
  golang-go-systemd-dev
-Standards-Version: 3.9.8
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/vci.git
+Vcs-Browser: https://github.com/nudanos/vci
 
 Package: deb-vci-helper
 Architecture: any
@@ -26,7 +28,7 @@ Description: Helper script for installing Vyatta Components
 
 Package: golang-github-danos-vci-dev
 Architecture: all
-Depends:
+Depends: 
  golang-dbus-dev (>= 4.0.0~git20160605-0vyatta4),
  golang-github-danos-encoding-rfc7951-dev,
  golang-github-danos-mgmterror-dev,
@@ -40,7 +42,7 @@ Description: Vyatta Component Infrastructure Development
 
 Package: vyatta-vci-bus
 Architecture: all
-Depends:
+Depends: 
  dbus,
  ephemerad,
  lsb-base (>= 3.0-6),
@@ -52,7 +54,7 @@ Description: Vyatta Component Infrastructure Private Message Bus
 
 Package: vci-tools
 Architecture: any
-Depends:
+Depends: 
  vyatta-vci-bus,
  ${shlibs:Depends},
 Built-Using: ${misc:Built-Using}

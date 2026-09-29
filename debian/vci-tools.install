@@ -1,1 +1,1 @@
-usr/bin/vci-emit-notification lib/vci/tools
+usr/bin/vci-emit-notification usr/lib/vci/tools

@@ -13,7 +13,7 @@ SYSTEMD_DEV_VER := $(shell dpkg-query -W -f='$${Version}' golang-github-coreos-g
 SYSTEMD_DEV_NEW := $(shell dpkg --compare-versions $(SYSTEMD_DEV_VER) ge 18 && echo "1" || echo "0")
 
 %:
-	dh $@ --buildsystem=golang --with=golang --builddirectory=$(GOBUILDDIR)
+	dh $@ --buildsystem=golang --with golang --builddirectory=$(GOBUILDDIR)
 
 # This is a temporary fix while we are building both Deb10 and Deb11 from this
 # source. Once we move to Deb11 only, the changes can be made unconditionally
@@ -31,8 +31,8 @@ override_dh_auto_build: vet
 override_dh_auto_test:
 	dh_auto_test -- $(GORACE) $(GOCOVER)
 
-override_dh_systemd_enable:
-	dh_systemd_enable --name=vyatta-vci-bus
+override_dh_installsystemd:
+	dh_installsystemd --name=vyatta-vci-bus
 
 # We do not vet vendor code
 # For Debian11 (versus 10 and earlier) we need to explicitly set GO111MODULE to
