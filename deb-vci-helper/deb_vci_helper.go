@@ -53,7 +53,7 @@ func main() {
 		// as part of a failed install, in which case we'd have already
 		// printed the same error for the install.
 		if action != "remove" {
-			fmt.Fprintf(os.Stderr, err.Error())
+			fmt.Fprint(os.Stderr, err.Error())
 			os.Exit(1)
 		}
 		os.Exit(0)
