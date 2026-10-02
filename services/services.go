@@ -198,9 +198,13 @@ func (mgr *Manager) Disable(name string) error {
 		return err
 	}
 	if !mgr.isAvailable() {
-		if err := os.Remove(mgr.svcSymlinkPath(name)); err != nil {
+		// Without systemd there is no connection; a missing symlink
+		// means the service was never enabled.
+		err := os.Remove(mgr.svcSymlinkPath(name))
+		if err != nil && !os.IsNotExist(err) {
 			return fmt.Errorf("Cannot disable '%s': %s\n", name, err.Error())
 		}
+		return nil
 	}
 	_, err := mgr.conn.DisableUnitFiles(
 		[]string{mgr.svcName(name)},
