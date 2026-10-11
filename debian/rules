@@ -34,7 +34,7 @@ override_dh_auto_test:
 override_dh_installsystemd:
 	dh_installsystemd --name=vyatta-vci-bus
 
-# We do not vet vendor code
+# NuDanOS: vet every Go package, vendored code included
 # For Debian11 (versus 10 and earlier) we need to explicitly set GO111MODULE to
 # avoid 'go vet' failing due to module-related issues. We also need to restrict
 # the package list found to the GOBUILDDIR subset or external packages cause
@@ -42,5 +42,5 @@ override_dh_installsystemd:
 vet:
 	if go doc cmd/vet >/dev/null 2>&1; then \
 		GO111MODULE=off GOPATH=$(CURDIR)/$(GOBUILDDIR) go vet $$(find . -type f -name \*.go | \
-		xargs dirname | sort -u | grep $(GOBUILDDIR) | grep -v services | grep -v "/vendor/"); \
+		xargs dirname | sort -u | grep $(GOBUILDDIR)); \
 	fi

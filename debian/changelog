@@ -1,3 +1,10 @@
+vyatta-component-infra (4.15) trixie; urgency=medium
+
+  * go vet every package, the services package and vendored code
+    included.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Sun, 11 Oct 2026 11:17:12 -0700
+
 vyatta-component-infra (4.14) trixie; urgency=medium
 
   * services: Disable without systemd (chroot, container, image build) no
